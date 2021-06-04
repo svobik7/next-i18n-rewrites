@@ -1,15 +1,4 @@
-export interface Author {
-  id: number
-  name: string
-  username: string
-}
-
-export interface Article {
-  id: number
-  title: string
-  slug: string
-  authorId: string
-}
+import { Article, Author } from 'types'
 
 export function isAuthor(author: unknown): author is Author {
   if (author['id'] === undefined) return false

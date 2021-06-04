@@ -1,4 +1,4 @@
-import styles from 'styles/index.module.scss'
+import styles from 'styles/home-root.module.scss'
 import { RootName } from 'types'
 
 function IndexRoot() {

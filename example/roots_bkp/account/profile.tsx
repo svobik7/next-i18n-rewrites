@@ -1,8 +1,8 @@
-import styles from 'styles/account-profile.module.scss'
-import { RootLocale, RootName } from 'types'
+import AccountProfile from 'domains/account-profile'
+import { RootName, RootLocale } from 'types'
 
 function AccountProfileRoot() {
-  return <div className={styles.root}>Account Profile Domain</div>
+  return <AccountProfile />
 }
 
 AccountProfileRoot.schemaRoot = {
@@ -10,18 +10,23 @@ AccountProfileRoot.schemaRoot = {
   pages: [
     {
       locale: RootLocale.EN,
-      path: 'account/profile',
+      path: 'account/profile-{{token}}',
     },
     {
       locale: RootLocale.CS,
-      path: 'ucet/profil',
+      path: 'ucet/profil-{{token}}',
+    },
+    {
+      locale: RootLocale.EN,
+      path: 'cuenta/perfil-{{token}}',
     },
   ],
   metaData: [
     { locale: '*', data: { background: 'orange' } },
     { locale: 'cs', data: { title: 'Profil' } },
     { locale: 'en', data: { title: 'Profile' } },
+    { locale: 'es', data: { title: 'Perfil' } },
   ],
+  params: { token: 'b1' },
 }
-
 export default AccountProfileRoot
