@@ -1,4 +1,4 @@
-import { AppProps } from 'next/app'
+import { AppProps as NextAppProps } from 'next/app'
 import { createContext, useContext } from 'react'
 import { SchemaMeta, SchemaRule } from '../types'
 
@@ -50,18 +50,18 @@ function useRoots(): Roots {
 }
 
 function detectRoots(
-  appProps: AppProps,
-  initial: Partial<Roots> = initialContext
+  appProps: NextAppProps,
+  initial: Partial<Roots> = initialContext,
 ): Roots {
   const { router } = appProps
 
-  let context = {
+  const context = {
     ...initialContext,
     ...initial,
   }
 
   // re-type component to suppress TS errors about getRoots method
-  const Component = appProps.Component as AppProps['Component'] & {
+  const Component = appProps.Component as NextAppProps['Component'] & {
     getRoots: () => Roots
   }
 
